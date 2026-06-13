@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Krona+One&amp;display=swap');</style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+
+  <!-- Edge rules -->
+  <line x1="52" y1="52" x2="1148" y2="52" stroke="#f0ece4" stroke-width="0.6" opacity="0.12"/>
+  <line x1="52" y1="578" x2="1148" y2="578" stroke="#f0ece4" stroke-width="0.6" opacity="0.12"/>
+  <line x1="52" y1="52" x2="52" y2="578" stroke="#f0ece4" stroke-width="0.6" opacity="0.12"/>
+  <line x1="1148" y1="52" x2="1148" y2="578" stroke="#f0ece4" stroke-width="0.6" opacity="0.12"/>
+
+  <!-- Logo — Black logo.svg content inlined, scaled 0.8333× (900×226px), centered -->
+  <!-- Original viewBox: 0 0 1080 270.73 -->
+  <g transform="translate(150, 187) scale(0.8333)">
+    <!-- Corner bracket top-left -->
+    <line x1="487.03" y1="88.14" x2="487.03" y2="63.39" stroke="#f0ece4" stroke-width="1.8" fill="none"/>
+    <line x1="487.03" y1="63.39" x2="511.76" y2="63.39" stroke="#f0ece4" stroke-width="1.8" fill="none"/>
+    <!-- Corner bracket top-right -->
+    <line x1="620.65" y1="63.39" x2="645.4" y2="63.39" stroke="#f0ece4" stroke-width="1.8" fill="none"/>
+    <line x1="645.4" y1="63.39" x2="645.4" y2="88.14" stroke="#f0ece4" stroke-width="1.8" fill="none"/>
+    <!-- Corner bracket bottom-right -->
+    <line x1="645.4" y1="197.01" x2="645.4" y2="221.76" stroke="#f0ece4" stroke-width="1.8" fill="none"/>
+    <line x1="645.4" y1="221.76" x2="620.65" y2="221.76" stroke="#f0ece4" stroke-width="1.8" fill="none"/>
+    <!-- Corner bracket bottom-left -->
+    <line x1="511.76" y1="221.76" x2="487.03" y2="221.76" stroke="#f0ece4" stroke-width="1.8" fill="none"/>
+    <line x1="487.03" y1="221.76" x2="487.03" y2="197.01" stroke="#f0ece4" stroke-width="1.8" fill="none"/>
+    <!-- EST. 2025 -->
+    <text x="101.55" y="64.04" font-family="'Krona One', 'Courier New', monospace" font-size="13.54" fill="#5e5e5e" letter-spacing="0.27em">EST. 2025</text>
+    <!-- DONNY -->
+    <text x="94.67" y="204.09" font-family="'Bebas Neue', Impact, sans-serif" font-size="167.81" fill="#f0ece4" letter-spacing="0.02em">DONNY</text>
+    <!-- DOT -->
+    <text x="523.39" y="168.87" font-family="'Bebas Neue', Impact, sans-serif" font-size="73.67" fill="#c9c5c5" letter-spacing="0.04em">DOT</text>
+    <!-- EDITS -->
+    <text x="675.31" y="204.09" font-family="'Bebas Neue', Impact, sans-serif" font-size="167.81" fill="#f0ece4" letter-spacing="0.02em">EDITS</text>
+  </g>
+
+  <!-- Tagline -->
+  <text x="600" y="492" font-family="'Krona One', 'Courier New', monospace" font-size="13" fill="#f0ece4" opacity="0.28" text-anchor="middle" letter-spacing="0.22em">VIDEO EDITOR &amp; MOTION DESIGNER · DELHI, INDIA</text>
+</svg>
