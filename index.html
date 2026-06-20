@@ -349,17 +349,20 @@ a.cr-val:hover{opacity:0.65;transition:opacity 0.2s;}
   .hero-right{align-items:flex-start;}
   .hero-headline{font-size:clamp(52px,13vw,76px);}
 
-  /* BRANDS - single ticker strip, no row labels */
-  .brands-section{padding:72px 0 0;}
-  .brands-hdg{padding:0 24px;font-size:clamp(36px,10vw,52px);margin-bottom:16px;}
+  /* BRANDS - compact rows with manual swipe + auto-scroll */
+  .brands-section{padding:48px 0 0;}
+  .brands-hdg{padding:0 24px;font-size:clamp(32px,9vw,48px);margin-bottom:12px;}
   .brands-section .sec-label{padding:0 24px;}
   .brands-rows{overflow-x:hidden;padding-bottom:0;display:flex;flex-direction:column;gap:0;}
-  .brands-row{min-width:unset;overflow:hidden;}
-  .brands-row-lbl{display:none;}
-  .brands-logos{overflow:hidden;display:block;}
-  .brands-logos-inner{display:flex;}
-  .brands-logos-inner.mq-active{animation:brandsMQ 26s linear infinite;}
-  .brands-logos .brand-cell{flex:0 0 auto;min-width:88px;padding:14px 6px;}
+  .brands-row{min-width:unset;overflow:hidden;display:flex;align-items:stretch;}
+  .brands-row-lbl{width:60px;flex-shrink:0;padding:10px 6px;}
+  .brands-logos{overflow-x:scroll;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex:1;display:flex;}
+  .brands-logos::-webkit-scrollbar{display:none;}
+  .brands-logos-inner{display:flex;width:max-content;}
+  .brands-logos .brand-cell{flex:0 0 auto;min-width:64px;padding:10px 4px;border-right:1px solid var(--border);}
+  .brands-logos .brand-img{height:20px;max-width:56px;}
+  .brands-logos .brand-img-wb{height:20px;max-width:56px;}
+  .brands-logos .brand-coord{display:none;}
   @keyframes brandsMQ{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* FEATURED WORK */
@@ -968,7 +971,8 @@ textarea.field-input{resize:none;height:86px;line-height:1.8;}
 
 /* ===================== PAGE: ABOUT MOBILE ===================== */
 @media(max-width:768px){
-  .about-nav .nav-logo{display:none;}
+  .about-nav .nav-logo{font-size:0;letter-spacing:0;}
+  .about-nav .nav-logo::before{content:'HOME';font-size:7.5px;letter-spacing:0.12em;color:#f0ece4;opacity:0.85;}
   .about-timecode{display:none;}
   .s-hero{padding:120px 24px 60px;}
   .hero-sub{font-size:16px;margin-bottom:40px;}
@@ -2860,7 +2864,7 @@ function closeLB(e){ if(!e||e.target===document.getElementById('lightbox')||e.ta
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();});
 
 /* Brands marquee auto-scroll on mobile */
-function initBrandsMarqueeMobile(){
+function initBrandsScrollMobile(){
   if(window.innerWidth>768)return;
   document.querySelectorAll('.brands-logos').forEach(function(logos){
     if(logos.querySelector('.brands-logos-inner'))return;
@@ -2870,11 +2874,19 @@ function initBrandsMarqueeMobile(){
     var clone=inner.cloneNode(true);
     logos.appendChild(inner);
     logos.appendChild(clone);
-    inner.classList.add('mq-active');
-    clone.classList.add('mq-active');
+    var paused=false;
+    logos.addEventListener('touchstart',function(){paused=true;},{passive:true});
+    logos.addEventListener('touchend',function(){setTimeout(function(){paused=false;},1800);},{passive:true});
+    (function tick(){
+      if(!paused){
+        logos.scrollLeft+=0.6;
+        if(logos.scrollLeft>=inner.scrollWidth)logos.scrollLeft=0;
+      }
+      requestAnimationFrame(tick);
+    })();
   });
 }
-document.addEventListener('DOMContentLoaded',initBrandsMarqueeMobile);
+document.addEventListener('DOMContentLoaded',initBrandsScrollMobile);
 
 function initProcessAccordionMobile(){
   if(window.innerWidth>768)return;
